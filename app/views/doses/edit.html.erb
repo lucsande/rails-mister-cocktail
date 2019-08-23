@@ -1,0 +1,28 @@
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        "<%= dose.quantity %> <%= dose.unit %> of <%= dose.ingredient.name %>"
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <br>
+  <p class="alert-success"><%= params[:message] %></p>
+  <h5>Edit one of the existing ingredients:</h5>
+  <hr>
+  <br>
+  <% @doses.each do | dose | %>
+    <%= render 'form', cocktail: @cocktail, dose: dose %>
+    <br>
+    <hr>
+    <br>
+  <% end %>
+  <%= link_to "Go back to the menu", cocktails_path, class: 'btn btn-danger' %>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+

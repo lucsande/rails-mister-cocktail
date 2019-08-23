@@ -6,6 +6,10 @@ ruby '2.6.3'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
+gem 'nokogiri'
+gem 'json'
+gem 'dotenv-rails', groups: [:development, :test]
+# gem 'open-uri'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

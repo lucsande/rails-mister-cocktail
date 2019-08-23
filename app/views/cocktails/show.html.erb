@@ -1,0 +1,33 @@
+<div class="container">
+  <% dose = Dose.new %>
+  <h1><%= @cocktail.name %></h1>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        "<%= dose.quantity %> <%= dose.unit %> of <%= dose.ingredient.name %>"
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Edit an ingredient', edit_cocktail_dose_path(@cocktail), class: 'btn btn-secondary' %>
+  <br>
+  <br>
+  <hr>
+  <h5>Add an ingredient to <%= @cocktail.name %></h5>
+  <p>Please tell us how much of which ingredients should be used to make the perfect <%= @cocktail.name %></p>
+  <br>
+
+  <% if flash[:error]%>
+    <div class="alert alert-danger" style="position:relative!important"><%= flash[:error]%></div>
+  <% end %>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" style="position:relative!important"><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= render 'form_doses', cocktail: @cocktail, dose: @dose %>
+
+  <br>
+  <hr>
+  <%= link_to "Check the whole menu again", cocktails_path, class: 'btn btn-primary' %>
+  <br>
+  <br>
+</div>

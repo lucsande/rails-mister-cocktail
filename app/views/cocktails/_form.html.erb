@@ -1,0 +1,5 @@
+<p>Please write the cocktail's name, so we can check whether it already exists on our menu</p>
+<%= simple_form_for [cocktail] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "add a cocktail", class: "btn btn-primary" %>
+<% end %>

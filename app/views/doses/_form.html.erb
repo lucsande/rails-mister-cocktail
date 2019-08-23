@@ -1,0 +1,9 @@
+<%= simple_form_for [cocktail, dose] do |f| %>
+<div class="row">
+  <%= f.input :quantity, label: false, collection: %w[1 2 3 4 5 6 7 8], include_hidden: false %>
+  <%= f.input :unit, label: false, collection: %w[spoons teaspoons cups liters milliliters], include_hidden: false %>
+  <%= f.input :ingredient_id, label: false, collection: Ingredient.all, include_hidden: false%>
+  <%= f.submit "edit the ingredient", class: "btn btn-primary btn-sm" %>
+  <%= link_to "delete ingredient", cocktail_dose_path(params[:cocktail_id], dose.id), method: :delete, class: "btn btn-danger btn-sm" %>
+</div>
+<% end %>
