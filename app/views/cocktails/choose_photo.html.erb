@@ -1,0 +1,17 @@
+<h1>Create <%= @cocktail.name %></h1>
+<h5>Add a photo to the recipe</h5>
+<%= simple_form_for @cocktail, url: update_cocktail_photo_path(@cocktail), method: :put do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "add photo", class: "btn btn-primary" %>
+<% end %>
+
+<p>If you prefer, you can also choose from our photo suggestions:</p>
+
+<% @images_urls.reverse.each do | url | %>
+ <%= link_to update_cocktail_photo_path(url: url), method: :put do %>
+   <img src=" <%= url %> " >
+ <% end %>
+<% end %>
+
+<%= link_to "Menu", cocktails_path, class: "btn btn-success" %>
